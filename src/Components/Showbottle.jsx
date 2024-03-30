@@ -6,14 +6,14 @@ const Showbottle = ({bottle,handleAddtobutton}) => {
     return (
      <>
 
-<div className="w-[330px] flex justify-center items-center mb-4 flex-col px-10 bg-red-300 rounded-xl shadow-lg shadow-gray-500">
+<div className="w-[330px] flex justify-center items-center mb-4 flex-col px-10 bg-red-400 rounded-xl shadow-lg shadow-gray-500">
 
-<img className="w-[200px] h-[250px] rounded-xl shadow-lg shadow-gray-600 mt-5 " src={image} alt="bottle" />
-<h1 className="text-xl">Name:{name}</h1>
-<p className="text-lg font-semibold">Material: {material}</p>
+<img className="w-[200px] h-[250px] rounded-xl shadow-lg shadow-gray-600 mt-5 mb-2 " src={image} alt="bottle" />
+<h1 className="text-xl text-center">Name:{name}</h1>
+<p className="text-lg  font-semibold">Material: {material}</p>
 <p className="text-lg font-semibold">Color: {color}</p>
 <p className="text-lg font-semibold">price:BDT {price}</p>
-<button onClick={()=>handleAddtobutton(bottle)} className="btn controls mt-2 mb-4">Purchase</button>
+<button onClick={()=>handleAddtobutton(bottle)} className="btn controls bg-green-500 mt-2 mb-4">Purchase</button>
 </div>
      </>
     );

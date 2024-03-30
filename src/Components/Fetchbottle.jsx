@@ -15,6 +15,7 @@ const [selectedbottles,setSelectedbottles] = useState([]);
 const [showsavedcart,setshowsavedcart] = useState('hidden');
 const [showVisualcart,setshowVisualcart] = useState('hidden');
 const [hidden,sethidden] = useState(false);
+const [visualhidden,setvisualhidden] = useState(false);
 
 
 
@@ -86,9 +87,9 @@ const handleAddtobutton =(bottle)=>{
         
     }
       //handleShowVisualCart
-      const handleShowVisualCart=(hidden)=>{
+      const handleShowVisualCart=(visualhidden)=>{
         if(addedbottles.length){
-        hidden ? setshowVisualcart('hidden') : setshowVisualcart('');}
+        visualhidden ? setshowVisualcart('hidden') : setshowVisualcart('');}
         //console.log('clicked saved cart');
         else{
             alert('Add cart');
@@ -106,7 +107,7 @@ const handleAddtobutton =(bottle)=>{
           </div>
           
           <button onClick={()=>{totalStoredCart && sethidden(!hidden),handleShowSavedCart(hidden)}} className={`btn mt-2  font-semibold   ${hidden ? 'bg-red-600': 'bg-green-600'} mr-2`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ hidden?'Hide Saved Cart' :'Show Saved Cart'}</button>
-          <button onClick={()=>{addedbottles.length && sethidden(!hidden),handleShowVisualCart(hidden)}} className={`btn mt-2  font-semibold  ${hidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ hidden?'Hide visual Cart' :'Show visual Cart'}</button>
+          <button onClick={()=>{addedbottles.length && setvisualhidden(!visualhidden),handleShowVisualCart(visualhidden)}} className={`btn mt-2  font-semibold  ${visualhidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ visualhidden?'Hide visual Cart' :'Show visual Cart'}</button>
           <div className={`show-selected-bottles ${showsavedcart}  p-5  mx-auto`}>
             <ul className="flex flex-col ">
                 {

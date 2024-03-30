@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Showbottle from "./Showbottle";
-import { addToLocalStorage, getStoredLocalStorageData } from "./Localstorage/Localstorage";
+import { addToLocalStorage, getStoredLocalStorageData, handleDelteFromLocalstorage } from "./Localstorage/Localstorage";
 
 
 
@@ -16,6 +16,9 @@ const [showsavedcart,setshowsavedcart] = useState('hidden');
 const [showVisualcart,setshowVisualcart] = useState('hidden');
 const [hidden,sethidden] = useState(false);
 const [visualhidden,setvisualhidden] = useState(false);
+const [visualCartdisabled,setvisiualCartdisabled] = useState(false);
+const [successMessage,setsuccessMessage] = useState(false);
+const [deleteMessage,setdeleteMessage] = useState(false);
 
 
 
@@ -56,12 +59,13 @@ useEffect(()=>{
     }
 },[bottles])
 
+
 const handleAddtobutton =(bottle)=>{ 
+    setsuccessMessage(true);
     setTimeout(()=>{
-        console.log('Successfully added!')
+       setsuccessMessage(false);
     },1000)
-    console.log('clicked');
-    //console.log(bottle);
+   
      const newbottle = [...addedbottles,bottle];
      setaddedbottles(newbottle);
     //console.log(bottles)
@@ -70,12 +74,30 @@ const handleAddtobutton =(bottle)=>{
 }
 
     //handleVisualDelete function
-    const handleVisualDelete=(id)=>{
-        console.log(id);
-        const items_without_deletion = addedbottles.filter(item=>item.id===id);
-        console.log('remaingitems:',items_without_deletion)
+    const handleVisualCartDelete=(id)=>{
+        setdeleteMessage(true);
+        setTimeout(()=>{
+            setdeleteMessage(false);
+        },1000)
+        const availabeVisualCart = addedbottles;
+
+         const remainingVisualCart = availabeVisualCart.filter(item=>item.id!==id);
+         //console.log(remainingVisualCart);
+         setaddedbottles(remainingVisualCart);
+
         
     }
+    //handleDeteteFromLocalStorage
+    const handleSavedCartDelete = id =>{
+        setdeleteMessage(true);
+        setTimeout(()=>{
+            setdeleteMessage(false);
+        },2000)
+        console.log('clickedbysavedcart');
+        handleDelteFromLocalstorage(id);
+    }
+
+    
     //handleShowSavedCart
     const handleShowSavedCart=(hidden)=>{
         if(totalStoredCart){
@@ -96,7 +118,7 @@ const handleAddtobutton =(bottle)=>{
         }
         
     }
-
+   console.log(addedbottles.length)
     return (
         <> 
           <div className="bg-gray-200 space-y-1 p-5 w-[300px] lg:w-full mx-auto text-green-600">
@@ -104,7 +126,12 @@ const handleAddtobutton =(bottle)=>{
           <h3 className="font-bold">PresentSeletedCart:{addedbottles.length}</h3>
           <h3 className="font-bold mb-2">SavedCart:{totalStoredCart}</h3>
           <button onClick={()=>{totalStoredCart && sethidden(!hidden),handleShowSavedCart(hidden)}} className={`btn mb-3  font-semibold   ${hidden ? 'bg-red-600': 'bg-green-600'} mr-2`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ hidden?'Hide Saved Cart' :'Show Saved Cart'}</button>
-          <button onClick={()=>{addedbottles.length && setvisualhidden(!visualhidden),handleShowVisualCart(visualhidden)}} className={`btn mt-2  font-semibold  ${visualhidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ visualhidden?'Hide visual Cart' :'Show visual Cart'}</button>
+          <button  onClick={()=>{addedbottles.length && setvisualhidden(!visualhidden),handleShowVisualCart(visualhidden)}} className={`btn mt-2   font-semibold  ${visualhidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ visualhidden ?'Hide visual Cart' :'Show visual Cart'}</button>
+           <div>
+            {
+                successMessage && <p className="font-semibold">added successfully!</p>
+            }
+           </div>
           </div>
           
          
@@ -116,11 +143,17 @@ const handleAddtobutton =(bottle)=>{
                     <h4 className="font-bold">{eachselectedbottle.name}</h4>
                     <img className="w-[80px] h-[100px] border-dotted border-[3px] rounded-xl" src={eachselectedbottle.image} alt="" />
                     <h3 className="font-semibold">Price:BDT {eachselectedbottle.price}</h3>
-                    <button className="btn controls bg-red-500">Remove cart</button>
+                    <button onClick={()=>handleSavedCartDelete(eachselectedbottle.id)} className="btn controls bg-red-500">Remove cart</button>
+                    <div>
+                        {
+                            deleteMessage && <p className="text-red-900">item removed successfully!</p>
+                        }
+                    </div>
                     </div></li>) 
                 }
             </ul>
           </div>
+
           <div className={`p-5 ${showVisualcart} mx-auto `}>
             <ul className="flex flex-col ">
                 {
@@ -129,7 +162,14 @@ const handleAddtobutton =(bottle)=>{
                     <h4 className="font-bold">{addedbottle.name}</h4>
                     <img className="w-[80px] h-[100px] border-dotted border-[3px] rounded-xl" src={addedbottle.image} alt="" />
                     <h3 className="font-semibold">Price:BDT {addedbottle.price}</h3>
-                    <button onClick={()=>handleVisualDelete(addedbottle.id)} className="btn controls bg-red-500">Remove cart</button>
+                    <button onClick={()=>handleVisualCartDelete(addedbottle.id)} className="btn controls bg-red-500">Remove cart</button>
+                    <div>
+                    <div>
+                        {
+                            deleteMessage && <p className="text-red-900">item removed successfully!</p>
+                        }
+                    </div>
+                    </div>
                     </div></li>) 
                 }
             </ul>
@@ -138,6 +178,7 @@ const handleAddtobutton =(bottle)=>{
             {
                 bottles.map(bottle=><Showbottle key={bottle.id} bottle={bottle}
                     handleAddtobutton={handleAddtobutton} 
+
                     />)
             }
         </div>

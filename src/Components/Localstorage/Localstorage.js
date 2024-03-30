@@ -21,7 +21,15 @@
      
 
   }
-
+  const handleDelteFromLocalstorage = (id) =>{
+      const cart = getStoredLocalStorageData();
+      console.log(id);
+      console.log(cart)
+      const remainingCart = cart.filter(remainingcart=>remainingcart!==id);
+      
+      console.log('remainig',remainingCart);
+      saveToLocalStorage(remainingCart);
+  }
 // const Localstorage = ({data}) => {
 //     const {name,capacity} = data;
 //     const stringifieddata = JSON.stringify(name,capacity);
@@ -37,4 +45,4 @@
 //     );
 // };
 
-export {addToLocalStorage,getStoredLocalStorageData};
+export {addToLocalStorage,getStoredLocalStorageData,handleDelteFromLocalstorage};

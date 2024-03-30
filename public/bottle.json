@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "price":300,
+      "name": "Hydro Flask Wide Mouth Water Bottle",
+      "capacity": "32 oz",
+      "material": "Stainless Steel",
+      "color": "Black",
+      "image": "https://www.hydroflask.com/media/catalog/product/cache/0896d24226ba929ed2cdc43dc64054aa/w/3/w32bts-cascade-straighton_1.jpg"
+    },
+    {
+      "id": 2,
+      "price":320,
+      "name": "Nalgene Tritan Wide Mouth Water Bottle",
+      "capacity": "24 oz",
+      "material": "Tritan Plastic",
+      "color": "Blue",
+      "image": "https://theurbangear.com.au/cdn/shop/products/840x560NalgeneWideMouthWaterBottleSurfer_1200x.jpg?v=1710479627"
+    },
+    {
+      "id": 3,
+      "price":340,
+      "name": "CamelBak Chute Mag Water Bottle",
+      "capacity": "20 oz",
+      "material": "BPA-Free Plastic",
+      "color": "Red",
+      "image": "https://m.media-amazon.com/images/S/aplus-media/vc/39d26d39-3d8f-43fc-bab0-f828dd2bcd02.__CR0,0,300,300_PT0_SX300_V1___.jpg"
+    },
+    {
+      "id": 4,
+      "price":310,
+      "name": "S'well Stainless Steel Water Bottle",
+      "capacity": "17 oz",
+      "material": "Stainless Steel",
+      "color": "White",
+      "image": "https://m.media-amazon.com/images/I/51bZISwLtBL.jpg"
+    },
+    {
+      "id": 5,
+      "price":370,
+      "name": "Klean Kanteen Classic Stainless Steel Water Bottle",
+      "capacity": "27 oz",
+      "material": "Stainless Steel",
+      "color": "Green",
+      "image": "https://www.snowcountry.eu/media/catalog/product/cache/31b8a3b5dbd0c4cbc4ada78b51a1a9c9/k/l/klean-kateen-classic-40-oz-brushed-stainless_2.jpg"
+    },
+    {
+      "id": 6,
+      "price":350,
+      "name": "Contigo Autoseal Chill Water Bottle",
+      "capacity": "24 oz",
+      "material": "Stainless Steel",
+      "color": "Purple",
+      "image": "https://dsom-imager-prod.shipt.com/7190553/0-c45ca3b6f8b9cb03d3c4ea1814fef2df.jpeg"
+    },
+    {
+      "id": 7,
+      "price":350,
+      "name": "Simple Modern Summit Water Bottle",
+      "capacity": "22 oz",
+      "material": "Stainless Steel",
+      "color": "Turquoise",
+      "image": "https://i.ebayimg.com/images/g/ff8AAOSw9Zpixu7t/s-l400.jpg"
+    },
+    {
+      "id": 8,
+      "price":370,
+      "name": "Thermos Hydration Water Bottle",
+      "capacity": "18 oz",
+      "material": "BPA-Free Plastic",
+      "color": "Pink",
+      "image": "https://flasksonline.co.uk/cdn/shop/products/263357-thermos-hydration-bottle-with-meter-710-purple_1800x1800.jpg?v=1657027779"
+    },
+    {
+      "id": 9,
+      "price":380,
+      "name": "Fifty/Fifty Vacuum-Insulated Water Bottle",
+      "capacity": "20 oz",
+      "material": "Stainless Steel",
+      "color": "Orange",
+      "image": "https://www.cavaraty.com/web/image/product.product/89255/image_1920"
+    },
+    {
+      "id": 10,
+      "price":320,
+      "name": "MIUCOLOR Glass Water Bottle",
+      "capacity": "18 oz",
+      "material": "Borosilicate Glass",
+      "color": "Clear",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71R9N8oM%2BGL._SS400_.jpg"
+    }
+  ]
+  

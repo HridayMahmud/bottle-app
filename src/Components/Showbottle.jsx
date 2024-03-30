@@ -6,7 +6,7 @@ const Showbottle = ({bottle,handleAddtobutton}) => {
     return (
      <>
 
-<div className="w-[330px] flex justify-center items-center mb-4 flex-col px-10 bg-red-400 rounded-xl shadow-lg shadow-gray-500">
+<div className=" w-[300px] lg:w-[330px] flex justify-center items-center mb-4 flex-col px-10 bg-red-400 rounded-xl shadow-lg shadow-gray-500">
 
 <img className="w-[200px] h-[250px] rounded-xl shadow-lg shadow-gray-600 mt-5 mb-2 " src={image} alt="bottle" />
 <h1 className="text-xl text-center">Name:{name}</h1>

@@ -99,15 +99,15 @@ const handleAddtobutton =(bottle)=>{
 
     return (
         <> 
-          <div className="bg-gray-200 space-y-1 p-10 text-green-600">
+          <div className="bg-gray-200 space-y-1 p-5 w-[300px] lg:w-full mx-auto text-green-600">
           <h2 className="font-bold">Available bottles:{bottles.length}</h2>
           <h3 className="font-bold">PresentSeletedCart:{addedbottles.length}</h3>
-          <h3 className="font-bold">SavedCart:{totalStoredCart}</h3>
-          
+          <h3 className="font-bold mb-2">SavedCart:{totalStoredCart}</h3>
+          <button onClick={()=>{totalStoredCart && sethidden(!hidden),handleShowSavedCart(hidden)}} className={`btn mb-3  font-semibold   ${hidden ? 'bg-red-600': 'bg-green-600'} mr-2`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ hidden?'Hide Saved Cart' :'Show Saved Cart'}</button>
+          <button onClick={()=>{addedbottles.length && setvisualhidden(!visualhidden),handleShowVisualCart(visualhidden)}} className={`btn mt-2  font-semibold  ${visualhidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ visualhidden?'Hide visual Cart' :'Show visual Cart'}</button>
           </div>
           
-          <button onClick={()=>{totalStoredCart && sethidden(!hidden),handleShowSavedCart(hidden)}} className={`btn mt-2  font-semibold   ${hidden ? 'bg-red-600': 'bg-green-600'} mr-2`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ hidden?'Hide Saved Cart' :'Show Saved Cart'}</button>
-          <button onClick={()=>{addedbottles.length && setvisualhidden(!visualhidden),handleShowVisualCart(visualhidden)}} className={`btn mt-2  font-semibold  ${visualhidden ? 'bg-red-600': 'bg-green-600'}`}><i class="text-white text-2xl fa-solid fa-cart-shopping"></i>{ visualhidden?'Hide visual Cart' :'Show visual Cart'}</button>
+         
           <div className={`show-selected-bottles ${showsavedcart}  p-5  mx-auto`}>
             <ul className="flex flex-col ">
                 {
